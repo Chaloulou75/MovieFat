@@ -84,11 +84,14 @@
         <div class="text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 border-b border-gray-800 py-8">
 		@foreach($movie['cast'] as $cast)
 			<div class="flex flex-col">
-				<img src="https://image.tmdb.org/t/p/w500/{{ $cast['profile_path'] }}" alt="image cast" class="hover:opacity-75 transition ease-in-out duration-150">
+                <a href="{{ route('actors.show', $cast['id']) }}">
+				<img src="https://image.tmdb.org/t/p/w500/{{ $cast['profile_path'] }}" alt="image cast" class="hover:opacity-75 transition ease-in-out duration-150"></a>
 	            <div class="text-white text-lg rounded leading-tight px-2 py-2 mt-6">	
 					<div class="mr-8">
-						<div>{{$cast['name'] }} </div>
-						<div class="text-sm text-gray-500 mt-1">{{$cast['character'] }} </div>
+                        <a href="{{ route('actors.show', $cast['id']) }}">
+						  <div>{{$cast['name'] }} </div>
+                        </a>
+						<div class="text-sm text-gray-500 pt-2">{{$cast['character'] }} </div>
 					</div>
 			    </div>
 			</div>

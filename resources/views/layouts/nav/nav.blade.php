@@ -6,6 +6,8 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <a class="no-underline hover:underline text-gray-300 text-sm md:ml-12 p-3" href="/movies">{{ __('Movies') }}</a>
+                <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="/tv">{{ __('TV Shows') }}</a>
+                <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="/actors">{{ __('Actors') }}</a>
             </div>
 
             <div class="flex-1 text-right flex-col md:flex-row"> 

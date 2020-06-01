@@ -28,6 +28,7 @@
     </div>
 
     @livewireScripts
+    
     @yield('scripts')
 </body>
 </html>
