@@ -3,7 +3,7 @@
 		wire:model.debounce.500ms="search" 
 		type="text" 
 		class="bg-gray-800 rounded-full px-4 py-1 pl-8 text-sm w-64 focus:outline-none focus:shadow-outline" 
-		placeholder="Search Movie"
+		placeholder="Search Movie (Press '/' to focus)"
 		x-ref="search"
         @keydown.window="
             if (event.keyCode === 191) {
