@@ -1,8 +1,8 @@
 <div class="relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away="isOpen = false">
-	<input 
-		wire:model.debounce.500ms="search" 
-		type="text" 
-		class="bg-gray-800 rounded-full px-4 py-1 pl-8 text-sm w-64 focus:outline-none focus:shadow-outline" 
+	<input
+		wire:model.debounce.500ms="search"
+		type="text"
+		class="w-64 px-4 py-1 pl-8 text-sm bg-gray-800 rounded-full focus:outline-none focus:shadow-outline"
 		placeholder="Search Movie (Press '/' to focus)"
 		x-ref="search"
         @keydown.window="
@@ -18,20 +18,20 @@
 		>
 
 	<div class="absolute top-0">
-        <svg class="fill-current w-4 text-gray-500 mt-2 ml-2" viewBox="0 0 24 24"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"/></svg>
-    </div>	
+        <svg class="w-4 mt-2 ml-2 text-gray-500 fill-current" viewBox="0 0 24 24"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"/></svg>
+    </div>
 
-	<div wire:loading class="spinner right-0 top-0 mr-4 mt-3"></div>
-	
+	<div wire:loading class="top-0 right-0 mt-3 mr-4 spinner"></div>
+
 	@if(strlen($search) > 2)
-		<div class="z-50 absolute rounded bg-gray-800 mt-4 text-sm w-64" 
+		<div class="absolute z-50 w-64 mt-4 text-sm bg-gray-800 rounded"
 			 x-show.transition.opacity="isOpen">
-			
+
 			@if($searchResults->count()>0)
 				<ul>
 					@foreach($searchResults as $result)
 					<li class="border-b border-gray-700 ">
-						<a href="{{ route('movies.show', $result['id'])}}" class="block px-3 py-3 hover:bg-gray-700 flex items-center" 
+						<a href="{{ route('movies.show', $result['id'])}}" class="flex items-center px-3 py-3  hover:bg-gray-700"
 						@if($loop->last) @key.down="isOpen = false" @endif>
 
 							@if($result['poster_path'])
@@ -40,9 +40,9 @@
 								<img src="https://via.placeholder.com/150" alt="poster" class="w-8">
 							@endif
 							<span class="ml-4">{{ $result['title'] }}</span>
-						</a>					
+						</a>
 					</li>
-					@endforeach			
+					@endforeach
 				</ul>
 			@else
 			<div class="px-3 py-3">No results found for {{ $search }}</div>
